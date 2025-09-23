@@ -683,7 +683,7 @@ section[id] { scroll-margin-top: 80px; }
             <p class="section-sub">High‑impact visuals, irresistible perks, and flawless logistics—tailored to you.</p>
             <div class="services-grid">
                 <article class="service fade-in">
-                    <div class="media">
+               <!--     <div class="media">
                         <img src="https://images.unsplash.com/photo-1501117716987-c8e76f8e8b53?q=80&w=1600&auto=format&fit=crop"
                             alt="Luxury resort pool" />
                         <span class="chip">Luxury Resorts</span>
@@ -692,6 +692,18 @@ section[id] { scroll-margin-top: 80px; }
                         <h3>VIP Perks at Top Properties</h3>
                         <p>Breakfast, credits, and upgrades when available—welcome to VIP.</p>
                     </div>
+                    <div class="media"> -->
+                      <picture>
+                        <source type="image/webp" srcset="/Images/resort-800.webp 1x, /Images/resort-1600.webp 2x" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+                        <img src="/Images/resort-800.jpg"  width="800" height="1068" alt="Aerial view of a tropical island resort with turquoise water" loading="lazy" decoding="async">
+                      </picture>
+                      <span class="chip">Luxury Resorts</span>
+                         <div class="body">
+                        <h3>VIP Perks at Top Properties</h3>
+                        <p>Breakfast, credits, and upgrades when available—welcome to VIP.</p>
+                    </div>
+</div>
+
                 </article>
                 <article class="service fade-in">
                     <div class="media">
