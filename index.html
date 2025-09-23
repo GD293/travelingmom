@@ -279,38 +279,101 @@
     <div class="dest-grid">
       <!-- Use stable CDN placeholders now; swap src to your own Images/destinations/... later -->
       <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/paris/600/400" width="600" height="400" alt="Paris skyline" loading="lazy" decoding="async">
+        <picture>
+          <source type="image/webp"
+              srcset="Images/paris-600.webp 1x, Images/paris-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+          <img src="Images/paris-600.jpg"
+           width="600" height="379"
+           alt="Eiffel Tower and Champ de Mars in Paris" loading="lazy" decoding="async">
+        </picture>
         <span class="tag">Paris</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/dubai/600/400" width="600" height="400" alt="Dubai cityscape" loading="lazy" decoding="async">
-        <span class="tag">Dubai</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/bali/600/400" width="600" height="400" alt="Bali beaches" loading="lazy" decoding="async">
-        <span class="tag">Bali</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/maldives/600/400" width="600" height="400" alt="Maldives overwater villas" loading="lazy" decoding="async">
-        <span class="tag">Maldives</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/jamaica/600/400" width="600" height="400" alt="Jamaica coastline" loading="lazy" decoding="async">
-        <span class="tag">Jamaica</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/mexico/600/400" width="600" height="400" alt="Mexico ruins and beaches" loading="lazy" decoding="async">
-        <span class="tag">Mexico</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/greece/600/400" width="600" height="400" alt="Greece islands" loading="lazy" decoding="async">
-        <span class="tag">Greece</span>
-      </div>
-      <div class="dest fade-in">
-        <img src="https://picsum.photos/seed/tokyo/600/400" width="600" height="400" alt="Tokyo city lights" loading="lazy" decoding="async">
-        <span class="tag">Tokyo</span>
-      </div>
     </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/dubai-600.webp 1x, Images/dubai-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/dubai-600.jpg"
+           width="600" height="400"
+           alt="Ain Dubai observation wheel at Bluewaters Island" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Dubai</span>
+  </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/bali-600.webp 1x, Images/bali-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/bali-600.jpg"
+           width="600" height="464"
+           alt="Kelingking Beach cliffs in Nusa Penida, Bali" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Bali</span>
+  </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/maldives-600.webp 1x, Images/maldives-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/maldives-600.jpg"
+           width="600" height="450"
+           alt="Maldives white-sand islet with turquoise lagoon" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Maldives</span>
+  </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/jamaica-600.webp 1x, Images/jamaica-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/jamaica-600.jpg"
+           width="600" height="338"
+           alt="Dunn’s River Falls in Jamaica" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Jamaica</span>
+  </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/mexico-600.webp 1x, Images/mexico-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/mexico-600.jpg"
+           width="600" height="400"
+           alt="Historic plaza scene in Mexico" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Mexico</span>
+  </div>
+
+  <div class="dest fade-in">
+    <picture>
+      <source type="image/webp"
+              srcset="Images/greece-600.webp 1x, Images/greece-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+      <img src="Images/greece-600.jpg"
+           width="600" height="378"
+           alt="Santorini clifftop village overlooking the Aegean" loading="lazy" decoding="async">
+    </picture>
+    <span class="tag">Greece</span>
+  </div>
+
+    <div class="dest fade-in">
+      <picture>
+        <source type="image/webp"
+              srcset="Images/tokyo-600.webp 1x, Images/tokyo-1200.webp 2x"
+              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+        <img src="Images/tokyo-600.jpg"
+           width="600" height="400"
+           alt="Tokyo neon at night in Akihabara" loading="lazy" decoding="async">
+      </picture>
+      <span class="tag">Tokyo</span>
+    </div>
+  </div>
   </div>
 </section>
 
