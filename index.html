@@ -262,8 +262,7 @@
         }
 
         .service .media {
-            position: relative;
-            height: 220px
+            aspect-ratio: 16 / 10; height: auto; 
         }
 
         .service .media img {
@@ -272,6 +271,7 @@
             object-fit: cover;
             transform: scale(1.02);
             transition: transform .6s
+            
         }
 
         .service:hover .media img {
