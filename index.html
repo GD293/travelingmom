@@ -131,6 +131,14 @@
       .logo-img{height:32px}
     }
     @media (max-width:380px){.logo-text{display:none}}
+
+    /* Testimonial avatar */
+  .testimonial-avatar{
+    width:60px;height:60px;border-radius:50%;
+    object-fit:cover;border:3px solid var(--pink);
+    }
+  @media (min-width:768px){ .testimonial-avatar{ width:72px;height:72px; } }
+
   </style>
 </head>
 
@@ -397,17 +405,32 @@
         <article class="tcard fade-in">
           <div class="tstars">★★★★★</div>
           <p>“Working with The Traveling Mom Vacations was a great experience for me and my family. She made the process smooth and enjoyable. Her professional attitude and willingness to help made our experience easy and this was a welcome bonus. Honestly, she is the first person I'll refer and choose planning any trip moving forward. Our trip to Vegas was perfect and The Traveling Mom Vacations made it all possible.”</p>
-          <div class="tauth"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Keke"><div><strong>Keke Chanel</strong></div></div>
+          <div class="tauth">
+            <picture> 
+              <source type="image/webp" srcset="Images/testimonials/keke-chanel-400.webp 1x,
+                  Images/testimonials/keke-chanel-800.webp 2x"> <img class="testimonial-avatar" src="Images/testimonials/keke-chanel-400.jpg" width="72" height="72" alt="Keke Chanel smiling">
+            </picture>
+        <div><strong>Keke Chanel</strong></div></div>
         </article>
         <article class="tcard fade-in">
           <div class="tstars">★★★★★</div>
           <p>“Delveatra DeVance Clement. Thanks for planning our trip to Arizona! Our resort was amazing and you were amazing to work with!”</p>
-          <div class="tauth"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Toni"><div><strong>Toni Banks</strong></div></div>
+          <div class="tauth">
+             <picture>
+                <source type="image/webp" srcset="Images/testimonials/toni-banks-400.webp 1x,  Images/testimonials/toni-banks-800.webp 2x">
+                <img class="testimonial-avatar" src="Images/testimonials/toni-banks-400.jpg" width="72" height="72" alt="Toni Banks wearing hat at a restaurant">
+            </picture>
+            <div><strong>Toni Banks</strong></div></div>
         </article>
         <article class="tcard fade-in">
           <div class="tstars">★★★★★</div>
           <p>“I had the pleasure of working with Delveatra of The Traveling Mom Vacations and it was one of the easiest experiences I have had. She responded very quickly with multiple options within the same day and handled every detail, even a handicap-accessible room for my parents. She’s professional, fast, and goes above and beyond.”</p>
-          <div class="tauth"><img src="https://images.unsplash.com/photo-1494790108755-2616c4a5d92a?q=80&w=200&auto=format&fit=crop" alt="Percy"><div><strong>Percy Huff III</strong></div></div>
+          <div class="tauth">
+            <picture>
+                <source type="image/webp" srcset="Images/testimonials/percy-huff-400.webp 1x, Images/testimonials/percy-huff-800.webp 2x">
+                <img class="testimonial-avatar" src="Images/testimonials/percy-huff-400.jpg" width="72" height="72" alt="Percy Huff in car selfie">
+            </picture>
+            <div><strong>Percy Huff III</strong></div></div>
         </article>
       </div>
     </div>
