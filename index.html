@@ -587,6 +587,35 @@ section[id] { scroll-margin-top: 80px; }
   .hero { padding: 88px 0 48px; }
   .logo { font-size: 1rem; }
 }
+/* Brand lockup (prevents distortion) */
+.logo {
+  display: flex;              /* align image + text on one line */
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;        /* keeps brand together */
+}
+.logo-img {
+  height: 40px;               /* desktop size */
+  width: auto;                /* avoid squish/stretch */
+  display: block;
+  object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .logo-img { height: 36px; }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .logo-img { height: 32px; }
+  .logo-text { font-size: 0.95rem; }
+}
+
+/* Optional: on very narrow screens show icon only */
+@media (max-width: 380px) {
+  .logo-text { display: none; }
+}
 
     </style>
 </head>
@@ -595,8 +624,15 @@ section[id] { scroll-margin-top: 80px; }
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-wrap">
-            <a class="logo" href="#home"><img src="Images/tmv-logo.png"></a>
-            <a class="logo" href="#home">The Traveling Mom Vacations</a>
+           <!-- <a class="logo" href="#home"><img src="Images/tmv-logo.png"></a>
+            <a class="logo" href="#home">The Traveling Mom Vacations</a> -->
+            <!-- AFTER -->
+            <a class="logo" href="#home">
+              <img src="Images/traveling-mom-logo.png"
+               alt="The Traveling Mom Vacations logo"
+               class="logo-img">
+                  <span class="logo-text">The Traveling Mom Vacations</span>
+            </a>
             <button class="nav-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
