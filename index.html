@@ -148,6 +148,11 @@
       object-fit:cover;border:3px solid var(--pink);
     }
     @media (min-width:768px){ .testimonial-avatar{ width:72px;height:72px; } }
+
+    /* Newsletter status: fade in/out */
+    #newsletter-status { opacity: 0; transition: opacity .3s; }
+    #newsletter-status.show { opacity: 1; }
+
   </style>
 </head>
 
@@ -559,42 +564,60 @@
     document.getElementById('year').textContent=new Date().getFullYear();
 
     // Mailchimp JSONP submit (keeps user on page)
-    (function(){
-      const form=document.getElementById('mc-embedded-subscribe-form');
-      if(!form) return;
-      const status=document.getElementById('newsletter-status');
+(function () {
+  const form = document.getElementById('mc-embedded-subscribe-form');
+  if (!form) return;
+  const status = document.getElementById('newsletter-status');
+  const SHOW_MS = 6000; // how long the success message stays
 
-      form.addEventListener('submit',function(e){
-        e.preventDefault();
+  function showStatus(msg, color, autoHide = false) {
+    status.textContent = msg;
+    status.style.color = color;
+    status.classList.add('show');
+    if (autoHide) {
+      clearTimeout(status._t);
+      status._t = setTimeout(() => {
+        status.classList.remove('show');
+        status.textContent = '';
+      }, SHOW_MS);
+    }
+  }
 
-        const firstName=form.querySelector('input[name="FNAME"]').value.trim();
-        const email=form.querySelector('input[name="EMAIL"]').value.trim();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        if(!firstName){ status.style.color='#ff4aa2'; status.textContent='Please enter your first name.'; return; }
-        if(!email){ status.style.color='#ff4aa2'; status.textContent='Please enter your email.'; return; }
+    const firstName = form.querySelector('input[name="FNAME"]')?.value.trim() || '';
+    const email = form.querySelector('input[name="EMAIL"]')?.value.trim() || '';
 
-        const base=form.getAttribute('action').replace('/post?','/post-json?');
-        const params=new URLSearchParams(new FormData(form));
-        const cb='mc_cb_'+Date.now();
+    if (!firstName) { showStatus('Please enter your first name.', '#ff4aa2'); return; }
+    if (!email) { showStatus('Please enter your email.', '#ff4aa2'); return; }
 
-        window[cb]=function(data){
-          if(data.result==='success'){
-            status.style.color='#ffffff'; // success in white
-            status.textContent='Thanks for subscribing!';
-            form.reset();
-          }else{
-            status.style.color='#ff4aa2';
-            status.textContent=(data.msg||'Something went wrong. Please try again.').replace(/<[^>]+>/g,'');
-          }
-          delete window[cb];
-          script.remove();
-        };
+    const base = form.getAttribute('action').replace('/post?', '/post-json?');
+    const params = new URLSearchParams(new FormData(form));
 
-        const script=document.createElement('script');
-        script.src=base+'&'+params.toString()+'&c='+cb;
-        document.body.appendChild(script);
-      });
-    })();
+    // Mirror first name to common MC tags, so it lands even if your audience uses a different tag
+    ['FNAME','MMERGE1','FIRSTNAME','NAME'].forEach(tag => {
+      if (!params.has(tag) && firstName) params.append(tag, firstName);
+    });
+
+    const cb = 'mc_cb_' + Date.now();
+    window[cb] = function (data) {
+      if (data.result === 'success') {
+        showStatus('Thanks for subscribing!', '#ffffff', true); // white text, auto-hide
+        form.reset();
+      } else {
+        showStatus((data.msg || 'Something went wrong. Please try again.').replace(/<[^>]+>/g, ''), '#ff4aa2');
+      }
+      delete window[cb];
+      script.remove();
+    };
+
+    const script = document.createElement('script');
+    script.src = base + '&' + params.toString() + '&c=' + cb;
+    document.body.appendChild(script);
+  });
+})();
+
   </script>
 </body>
 </html>
