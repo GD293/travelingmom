@@ -8,9 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --pink:#ff4aa2;--blue:#2f8cff;--ink:#0f172a;--muted:#6b7280;--yellow:#ffd566
-    }
+    :root{--pink:#ff4aa2;--blue:#2f8cff;--ink:#0f172a;--muted:#6b7280;--yellow:#ffd566}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;line-height:1.6;color:var(--ink);overflow-x:hidden}
@@ -143,15 +141,12 @@
     }
     @media (max-width:380px){.logo-text{display:none}}
 
-    .testimonial-avatar{
-      width:60px;height:60px;border-radius:50%;
-      object-fit:cover;border:3px solid var(--pink);
-    }
+    .testimonial-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:3px solid var(--pink)}
     @media (min-width:768px){ .testimonial-avatar{ width:72px;height:72px; } }
 
     /* Newsletter status: fade in/out */
-    #newsletter-status { opacity: 0; transition: opacity .3s; }
-    #newsletter-status.show { opacity: 1; }
+    #newsletter-status{opacity:0;transition:opacity .3s}
+    #newsletter-status.show{opacity:1}
   </style>
 </head>
 
@@ -231,8 +226,8 @@
         <article class="service fade-in">
           <div class="media">
             <picture>
-                <source type="image/webp" srcset="Images/adventure-trip-600.webp 600w, Images/adventure-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                <img src="Images/adventure-trip-600.jpg" srcset="Images/adventure-trip-600.jpg 600w, Images/adventure-trip-1200.jpg 1200w" alt="Rappelling on a dramatic canyon wall" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="Images/adventure-trip-600.webp 600w, Images/adventure-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/adventure-trip-600.jpg" srcset="Images/adventure-trip-600.jpg 600w, Images/adventure-trip-1200.jpg 1200w" alt="Rappelling on a dramatic canyon wall" loading="lazy" decoding="async" />
             </picture>
             <span class="chip">Adventure Trips</span>
           </div>
@@ -261,8 +256,8 @@
         <article class="service fade-in">
           <div class="media">
             <picture>
-                <source type="image/webp" srcset="Images/group-trip-600.webp 600w, Images/group-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                <img src="Images/group-trip-600.jpg" srcset="Images/group-trip-600.jpg 600w, Images/group-trip-1200.jpg 1200w" alt="Friends posing together outdoors on a group trip" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="Images/group-trip-600.webp 600w, Images/group-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/group-trip-600.jpg" srcset="Images/group-trip-600.jpg 600w, Images/group-trip-1200.jpg 1200w" alt="Friends posing together outdoors on a group trip" loading="lazy" decoding="async" />
             </picture>
             <span class="chip">Group Travel</span>
           </div>
@@ -276,8 +271,8 @@
         <article class="service fade-in">
           <div class="media">
             <picture>
-                <source type="image/webp" srcset="Images/cruise-ship-600.webp 600w, Images/cruise-ship-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                <img src="Images/cruise-ship-600.jpg" srcset="Images/cruise-ship-600.jpg 600w, Images/cruise-ship-1200.jpg 1200w" alt="Sightseeing cruise boat on a river" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="Images/cruise-ship-600.webp 600w, Images/cruise-ship-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/cruise-ship-600.jpg" srcset="Images/cruise-ship-600.jpg 600w, Images/cruise-ship-1200.jpg 1200w" alt="Sightseeing cruise boat on a river" loading="lazy" decoding="async" />
             </picture>
             <span class="chip">Ocean &amp; River Cruises</span>
           </div>
@@ -291,8 +286,8 @@
         <article class="service fade-in">
           <div class="media">
             <picture>
-                <source type="image/webp" srcset="Images/family-vacation-600.webp 600w, Images/family-vacation-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                <img src="Images/family-vacation-600.jpg" srcset="Images/family-vacation-600.jpg 600w, Images/family-vacation-1200.jpg 1200w" alt="Family smiling together at the beach" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="Images/family-vacation-600.webp 600w, Images/family-vacation-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/family-vacation-600.jpg" srcset="Images/family-vacation-600.jpg 600w, Images/family-vacation-1200.jpg 1200w" alt="Family smiling together at the beach" loading="lazy" decoding="async" />
             </picture>
             <span class="chip">Family Vacations</span>
           </div>
@@ -305,109 +300,77 @@
     </div>
   </section>
 
-<!-- DESTINATIONS -->
-<section id="destinations" class="destinations section">
-  <div class="container">
-    <h2 class="section-title">Top Destinations</h2>
-    <div class="dest-grid">
-      <div class="dest fade-in">
-        <picture>
-          <source type="image/webp"
-              srcset="Images/paris-600.webp 1x, Images/paris-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-          <img src="Images/paris-600.jpg"
-           width="600" height="379"
-           alt="Eiffel Tower and Champ de Mars in Paris" loading="lazy" decoding="async">
-        </picture>
-        <span class="tag">Paris</span>
+  <!-- DESTINATIONS -->
+  <section id="destinations" class="destinations section">
+    <div class="container">
+      <h2 class="section-title">Top Destinations</h2>
+      <div class="dest-grid">
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/paris-600.webp 1x, Images/paris-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/paris-600.jpg" width="600" height="379" alt="Eiffel Tower and Champ de Mars in Paris" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Paris</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/dubai-600.webp 1x, Images/dubai-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/dubai-600.jpg" width="600" height="400" alt="Ain Dubai observation wheel at Bluewaters Island" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Dubai</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/bali-600.webp 1x, Images/bali-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/bali-600.jpg" width="600" height="464" alt="Kelingking Beach cliffs in Nusa Penida, Bali" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Bali</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/maldives-600.webp 1x, Images/maldives-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/maldives-600.jpg" width="600" height="450" alt="Maldives white-sand islet with turquoise lagoon" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Maldives</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/jamaica-600.webp 1x, Images/jamaica-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/jamaica-600.jpg" width="600" height="338" alt="Dunn’s River Falls in Jamaica" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Jamaica</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/mexico-600.webp 1x, Images/mexico-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/mexico-600.jpg" width="600" height="400" alt="Historic plaza scene in Mexico" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Mexico</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/greece-600.webp 1x, Images/greece-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/greece-600.jpg" width="600" height="378" alt="Santorini clifftop village overlooking the Aegean" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Greece</span>
+        </div>
+
+        <div class="dest fade-in">
+          <picture>
+            <source type="image/webp" srcset="Images/tokyo-600.webp 1x, Images/tokyo-1200.webp 2x" sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
+            <img src="Images/tokyo-600.jpg" width="600" height="400" alt="Tokyo neon at night in Akihabara" loading="lazy" decoding="async">
+          </picture>
+          <span class="tag">Tokyo</span>
+        </div>
+      </div>
     </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/dubai-600.webp 1x, Images/dubai-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/dubai-600.jpg"
-           width="600" height="400"
-           alt="Ain Dubai observation wheel at Bluewaters Island" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Dubai</span>
-  </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/bali-600.webp 1x, Images/bali-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/bali-600.jpg"
-           width="600" height="464"
-           alt="Kelingking Beach cliffs in Nusa Penida, Bali" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Bali</span>
-  </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/maldives-600.webp 1x, Images/maldives-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/maldives-600.jpg"
-           width="600" height="450"
-           alt="Maldives white-sand islet with turquoise lagoon" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Maldives</span>
-  </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/jamaica-600.webp 1x, Images/jamaica-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/jamaica-600.jpg"
-           width="600" height="338"
-           alt="Dunn’s River Falls in Jamaica" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Jamaica</span>
-  </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/mexico-600.webp 1x, Images/mexico-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/mexico-600.jpg"
-           width="600" height="400"
-           alt="Historic plaza scene in Mexico" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Mexico</span>
-  </div>
-
-  <div class="dest fade-in">
-    <picture>
-      <source type="image/webp"
-              srcset="Images/greece-600.webp 1x, Images/greece-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-      <img src="Images/greece-600.jpg"
-           width="600" height="378"
-           alt="Santorini clifftop village overlooking the Aegean" loading="lazy" decoding="async">
-    </picture>
-    <span class="tag">Greece</span>
-  </div>
-
-    <div class="dest fade-in">
-      <picture>
-        <source type="image/webp"
-              srcset="Images/tokyo-600.webp 1x, Images/tokyo-1200.webp 2x"
-              sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-        <img src="Images/tokyo-600.jpg"
-           width="600" height="400"
-           alt="Tokyo neon at night in Akihabara" loading="lazy" decoding="async">
-      </picture>
-      <span class="tag">Tokyo</span>
-    </div>
-  </div>
-  </div>
-</section>
+  </section>
 
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="testimonials section">
@@ -418,31 +381,34 @@
           <div class="tstars">★★★★★</div>
           <p>“Working with The Traveling Mom Vacations was a great experience for me and my family. She made the process smooth and enjoyable. Her professional attitude and willingness to help made our experience easy and this was a welcome bonus. Honestly, she is the first person I'll refer and choose planning any trip moving forward. Our trip to Vegas was perfect and The Traveling Mom Vacations made it all possible.”</p>
           <div class="tauth">
-            <picture> 
-              <source type="image/webp" srcset="Images/keke-chanel-400.webp 1x,
-                  Images/keke-chanel-800.webp 2x"> <img class="testimonial-avatar" src="Images/keke-chanel-400.jpg" width="72" height="72" alt="Keke Chanel smiling">
+            <picture>
+              <source type="image/webp" srcset="Images/keke-chanel-400.webp 1x, Images/keke-chanel-800.webp 2x">
+              <img class="testimonial-avatar" src="Images/keke-chanel-400.jpg" width="72" height="72" alt="Keke Chanel smiling">
             </picture>
-        <div><strong>Keke Chanel</strong></div></div>
+            <div><strong>Keke Chanel</strong></div>
+          </div>
         </article>
         <article class="tcard fade-in">
           <div class="tstars">★★★★★</div>
           <p>“Delveatra DeVance Clement. Thanks for planning our trip to Arizona! Our resort was amazing and you were amazing to work with!”</p>
           <div class="tauth">
-             <picture>
-                <source type="image/webp" srcset="Images/toni-banks-400.webp 1x,  Images/toni-banks-800.webp 2x">
-                <img class="testimonial-avatar" src="Images/toni-banks-400.jpg" width="72" height="72" alt="Toni Banks wearing hat at a restaurant">
+            <picture>
+              <source type="image/webp" srcset="Images/toni-banks-400.webp 1x, Images/toni-banks-800.webp 2x">
+              <img class="testimonial-avatar" src="Images/toni-banks-400.jpg" width="72" height="72" alt="Toni Banks wearing hat at a restaurant">
             </picture>
-            <div><strong>Toni Banks</strong></div></div>
+            <div><strong>Toni Banks</strong></div>
+          </div>
         </article>
         <article class="tcard fade-in">
           <div class="tstars">★★★★★</div>
           <p>“I had the pleasure of working with Delveatra of The Traveling Mom Vacations and it was one of the easiest experiences I have had. She responded very quickly with multiple options within the same day and handled every detail, even a handicap-accessible room for my parents. She’s professional, fast, and goes above and beyond.”</p>
           <div class="tauth">
             <picture>
-                <source type="image/webp" srcset="Images/percy-huff-400.webp 1x, Images/percy-huff-800.webp 2x">
-                <img class="testimonial-avatar" src="Images/percy-huff-400.jpg" width="72" height="72" alt="Percy Huff in car selfie">
+              <source type="image/webp" srcset="Images/percy-huff-400.webp 1x, Images/percy-huff-800.webp 2x">
+              <img class="testimonial-avatar" src="Images/percy-huff-400.jpg" width="72" height="72" alt="Percy Huff in car selfie">
             </picture>
-            <div><strong>Percy Huff III</strong></div></div>
+            <div><strong>Percy Huff III</strong></div>
+          </div>
         </article>
       </div>
     </div>
@@ -498,14 +464,9 @@
               class="controls"
               action="https://gmail.us5.list-manage.com/subscribe/post?u=4b2c7b4fc58cf81260dfc2863&id=1fb1e7e7ab&f_id=0038edebf0"
               method="post" novalidate>
-          <!-- Visible First Name -->
+          <!-- First Name (Mailchimp merge tag: FNAME) -->
           <input type="text" name="FNAME" id="mce-FNAME" class="newsletter-input"
                  placeholder="Enter your first name" autocomplete="given-name" required>
-          <!-- Hidden mirrors (safe to keep) -->
-          <input type="hidden" name="MMERGE1" id="mce-MMERGE1">
-          <input type="hidden" name="FIRSTNAME" id="mce-FIRSTNAME">
-          <input type="hidden" name="NAME" id="mce-NAME">
-
           <input type="email" name="EMAIL" class="newsletter-input" id="mce-EMAIL"
                  placeholder="Enter your email address" autocomplete="email" required>
           <button class="btn-primary" type="submit" name="subscribe">Subscribe Now</button>
@@ -567,12 +528,12 @@
     // Footer year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Mailchimp JSONP submit (keeps user on page) + explicit FNAME mapping
+    // Mailchimp JSONP submit (keeps user on page) — forces FNAME & strips stale f_id
     (function () {
       const form = document.getElementById('mc-embedded-subscribe-form');
       if (!form) return;
       const status = document.getElementById('newsletter-status');
-      const SHOW_MS = 6000; // success message display time
+      const SHOW_MS = 6000; // success message visible duration
 
       function showStatus(msg, color, autoHide = false) {
         status.textContent = msg;
@@ -590,51 +551,38 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const firstNameField = form.querySelector('#mce-FNAME');
-        const emailField = form.querySelector('#mce-EMAIL');
-        const firstName = firstNameField?.value.trim() || '';
-        const email = emailField?.value.trim() || '';
+        const firstName = form.querySelector('input[name="FNAME"]')?.value.trim() || '';
+        const email = form.querySelector('input[name="EMAIL"]')?.value.trim() || '';
 
         if (!firstName) { showStatus('Please enter your first name.', '#ff4aa2'); return; }
         if (!email) { showStatus('Please enter your email.', '#ff4aa2'); return; }
 
-        // Mirror to hidden inputs for robustness
-        ([
-          ['#mce-MMERGE1','MMERGE1'],
-          ['#mce-FIRSTNAME','FIRSTNAME'],
-          ['#mce-NAME','NAME']
-        ]).forEach(([sel])=>{
-          const el = form.querySelector(sel);
-          if (el) el.value = firstName;
-        });
+        // Rebuild base URL to remove stale f_id and switch to JSONP endpoint
+        const actionUrl = new URL(form.getAttribute('action'));
+        const u = actionUrl.searchParams.get('u');
+        const id = actionUrl.searchParams.get('id');
+        const base = `${actionUrl.origin}${actionUrl.pathname.replace('/post', '/post-json')}?u=${encodeURIComponent(u)}&id=${encodeURIComponent(id)}`;
 
-        // Convert /post? -> /post-json? for JSONP
-        const base = form.getAttribute('action').replace('/post?', '/post-json?');
+        // Build params from form and FORCE name fields for safety
         const params = new URLSearchParams(new FormData(form));
-
-        // *** Force the canonical tag Mailchimp expects ***
-        params.set('FNAME', firstName);   // <— key line
-
-        // Be extra-safe: if your audience had alternates, keep them too
-        ['MMERGE1','FIRSTNAME','NAME'].forEach(tag=>{
-          if (!params.has(tag) && firstName) params.append(tag, firstName);
-        });
+        params.set('FNAME', firstName);       // your audience merge tag
+        params.set('MMERGE1', firstName);     // legacy alias (belt & suspenders)
 
         const cb = 'mc_cb_' + Date.now();
         window[cb] = function (data) {
           if (data.result === 'success') {
-            showStatus('Thanks for subscribing!', '#ffffff', true); // white, auto-hide
+            showStatus('Thanks for subscribing!', '#ffffff', true); // white text, auto-hide
             form.reset();
           } else {
             showStatus((data.msg || 'Something went wrong. Please try again.').replace(/<[^>]+>/g, ''), '#ff4aa2');
           }
           delete window[cb];
-          script.remove();
+          jsonpScript.remove();
         };
 
-        const script = document.createElement('script');
-        script.src = base + '&' + params.toString() + '&c=' + cb;
-        document.body.appendChild(script);
+        const jsonpScript = document.createElement('script');
+        jsonpScript.src = base + '&' + params.toString() + '&c=' + cb;
+        document.body.appendChild(jsonpScript);
       });
     })();
   </script>
