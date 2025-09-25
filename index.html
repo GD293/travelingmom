@@ -1,1138 +1,265 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Traveling Mom Vacations — Make Unforgettable Memories</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-        :root {
-            --pink: #ff4aa2;
-            --blue: #2f8cff;
-            --ink: #0f172a;
-            --muted: #6b7280;
-            --yellow: #ffd566
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            margin: 0;
-            font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
-            line-height: 1.6;
-            color: var(--ink);
-            overflow-x: hidden
-        }
-
-        img {
-            display: block;
-            max-width: 100%
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit
-        }
-
-        /* NAVBAR */
-        .navbar {
-            position: fixed;
-            inset: 0 auto auto 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, .9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #eef2ff;
-            transition: box-shadow .3s
-        }
-
-        .nav-wrap {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 20px
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.15rem;
-            background: linear-gradient(90deg, var(--pink), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap
-        }
-
-        .logo-img {
-            height: 40px;
-            width: auto;
-            display: block;
-            object-fit: contain
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 28px;
-            list-style: none
-        }
-
-        .nav-link {
-            font-weight: 600;
-            color: #334155;
-            position: relative
-        }
-
-        .nav-link:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 0;
-            height: 3px;
-            border-radius: 3px;
-            background: linear-gradient(90deg, var(--pink), var(--blue));
-            transition: width .25s
-        }
-
-        .nav-link:hover:after,
-        .nav-link.active:after {
-            width: 100%
-        }
-
-        .nav-cta {
-            padding: .6rem 1rem;
-            border-radius: 999px;
-            color: #fff;
-            background: linear-gradient(135deg, var(--pink), #ff7fbd);
-            box-shadow: 0 8px 24px rgba(255, 74, 162, .35);
-            font-weight: 700
-        }
-
-        .nav-cta:hover {
-            filter: brightness(.97)
-        }
-
-        .nav-toggle {
-            display: none;
-            border: 0;
-            background: #fff;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, .08)
-        }
-
-        .nav-toggle i {
-            color: var(--blue);
-            font-size: 20px
-        }
-
-        /* HERO */
-        .hero {
-            height: 100vh;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            color: #fff;
-            background-image: linear-gradient(120deg, rgba(47, 140, 255, .45), rgba(255, 74, 162, .45)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2400&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center
-        }
-
-        .hero-inner {
-            padding: 0 1.25rem;
-            max-width: 960px
-        }
-
-        .eyebrow {
-            display: inline-block;
-            padding: .4rem .75rem;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--yellow), #fff0b2);
-            color: #5a4121;
-            font-weight: 800;
-            margin-bottom: 12px
-        }
-
-        .hero h1 {
-            font-weight: 800;
-            font-size: clamp(2.4rem, 6vw, 4.2rem);
-            text-shadow: 0 10px 30px rgba(0, 0, 0, .25)
-        }
-
-        .hero p {
-            opacity: .95;
-            font-size: clamp(1rem, 2.5vw, 1.3rem)
-        }
-
-        .cta {
-            display: inline-block;
-            margin-top: 18px;
-            padding: .9rem 1.6rem;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--pink), var(--blue));
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0 14px 36px rgba(47, 140, 255, .35)
-        }
-
-        .cta.alt {
-            background: transparent;
-            border: 2px solid #fff
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 80px 0
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px
-        }
-
-        .section-title {
-            text-align: center;
-            font-weight: 800;
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            margin: 6px 0 18px;
-            background: linear-gradient(90deg, var(--pink), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent
-        }
-
-        .section-sub {
-            color: var(--muted);
-            text-align: center;
-            margin-bottom: 22px
-        }
-
-        /* ABOUT */
-        .about {
-            background: #f7fbff
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            align-items: center
-        }
-
-        .about-text p {
-            color: #475569
-        }
-
-        .about-media {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .12)
-        }
-
-        /* SERVICES */
-        .services-grid {
-            display: grid;
-            gap: 24px;
-            grid-template-columns: repeat(3, minmax(0, 1fr))
-        }
-
-        .service {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, .08);
-            background: #fff;
-            transition: transform .35s, box-shadow .35s
-        }
-
-        .service:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 22px 60px rgba(0, 0, 0, .12)
-        }
-
-        .service .media {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 16/10;
-            height: auto
-        }
-
-        .service .media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.02);
-            transition: transform .6s
-        }
-
-        .service:hover .media img {
-            transform: scale(1.08)
-        }
-
-        .chip {
-            position: absolute;
-            left: 14px;
-            bottom: 14px;
-            border-radius: 999px;
-            padding: .35rem .7rem;
-            background: #fff;
-            color: var(--blue);
-            font-weight: 800;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .1)
-        }
-
-        .service .body {
-            padding: 18px 18px 22px
-        }
-
-        .service .body h3 {
-            margin: 0 0 6px;
-            font-size: 1.15rem;
-            color: var(--pink)
-        }
-
-        .service .body p {
-            margin: 0;
-            color: #516074
-        }
-
-        /* DESTINATIONS */
-        .destinations {
-            background: #fff
-        }
-
-        .dest-grid {
-            display: grid;
-            gap: 16px;
-            grid-template-columns: repeat(4, minmax(0, 1fr))
-        }
-
-        .dest {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, .08)
-        }
-
-        .dest img {
-            height: 170px;
-            width: 100%;
-            object-fit: cover;
-            transition: transform .5s
-        }
-
-        .dest:hover img {
-            transform: scale(1.06)
-        }
-
-        .dest .tag {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            background: #fff;
-            border-radius: 12px;
-            padding: .25rem .6rem;
-            font-weight: 800;
-            color: var(--blue)
-        }
-
-        /* TESTIMONIALS */
-        .testimonials {
-            background: #f7fbff
-        }
-
-        .test-grid {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(3, minmax(0, 1fr))
-        }
-
-        .tcard {
-            background: #fff;
-            border-radius: 18px;
-            padding: 22px;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, .08);
-            transition: transform .3s
-        }
-
-        .tcard:hover {
-            transform: translateY(-4px)
-        }
-
-        .tstars {
-            color: #ffcc00;
-            margin-bottom: 10px
-        }
-
-        .tauth {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 12px
-        }
-
-        .tauth img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--pink)
-        }
-
-        /* CONTACT + NEWSLETTER */
-        .contact {
-            background: linear-gradient(120deg, var(--pink), var(--blue));
-            color: #fff
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
-            align-items: center
-        }
-
-        .c-card {
-            background: rgba(255, 255, 255, .12);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 22px
-        }
-
-        /* --- Contact section enhancements (ONLY this section) --- */
-        .contact-card h3 {
-            margin: 0 0 10px;
-            font-weight: 800;
-            letter-spacing: .2px
-        }
-
-        .contact-list {
-            display: grid;
-            gap: 12px;
-            margin: 14px 0 0;
-            padding: 0;
-            list-style: none
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
-
-        .icon-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, .18);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, .08)
-        }
-
-        .icon-badge i {
-            font-size: 18px
-        }
-
-        .btn-yellow {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            margin-top: 12px;
-            padding: 12px 16px;
-            border-radius: 14px;
-            background: var(--yellow);
-            color: #5a4121;
-            font-weight: 800;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, .16)
-        }
-
-        .btn-yellow:hover {
-            filter: brightness(.95)
-        }
-
-        .micro {
-            opacity: .9;
-            margin-top: 8px;
-            font-size: .95rem
-        }
-
-        label {
-            font-weight: 600
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            margin-top: 6px;
-            border: 0;
-            border-radius: 12px;
-            padding: 12px 14px;
-            background: rgba(255, 255, 255, .2);
-            color: #fff;
-            outline: none
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: rgba(255, 255, 255, .85)
-        }
-
-        .btn-primary {
-            border: 0;
-            border-radius: 14px;
-            padding: 12px 16px;
-            background: #fff;
-            color: var(--pink);
-            font-weight: 800
-        }
-
-        .btn-primary:hover {
-            filter: brightness(.96)
-        }
-
-        .newsletter {
-            margin-top: 26px;
-            text-align: center
-        }
-
-        .newsletter .controls {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap
-        }
-
-        .newsletter input {
-            max-width: 360px
-        }
-
-        /* FOOTER */
-        footer {
-            background: linear-gradient(135deg, var(--blue), var(--pink));
-            color: #fff;
-            padding: 36px 0;
-            margin-top: 60px
-        }
-
-        /* ANIMATIONS */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .6s ease, transform .6s ease
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: none
-        }
-
-        /* Anchor offset for fixed navbar */
-        section[id] {
-            scroll-margin-top: 80px
-        }
-
-        /* Mobile tweaks */
-        .hero {
-            min-height: 100svh
-        }
-
-        @media (max-width:992px) {
-            .nav-toggle {
-                display: block
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 62px;
-                right: 16px;
-                left: 16px;
-                background: #fff;
-                border-radius: 16px;
-                padding: 14px 16px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
-                flex-direction: column;
-                gap: 14px
-            }
-
-            .nav-menu.open {
-                display: flex
-            }
-
-            .nav-menu .nav-cta {
-                text-align: center
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .dest-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .test-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr
-            }
-
-            .hero {
-                height: auto;
-                padding: 96px 0 56px
-            }
-
-            .logo-img {
-                height: 36px
-            }
-        }
-
-        @media (max-width:560px) {
-            .services-grid {
-                grid-template-columns: 1fr
-            }
-
-            .dest-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .test-grid {
-                grid-template-columns: 1fr
-            }
-
-            .hero {
-                padding: 88px 0 48px
-            }
-
-            .logo {
-                font-size: 1rem
-            }
-
-            .logo-img {
-                height: 32px
-            }
-        }
-
-        @media (max-width:380px) {
-            .logo-text {
-                display: none
-            }
-        }
-
-        /* Testimonial avatar */
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--pink);
-        }
-
-        @media (min-width:768px) {
-            .testimonial-avatar {
-                width: 72px;
-                height: 72px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Traveling Mom Vacations — Make Unforgettable Memories</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#ff4aa2;--blue:#2f8cff;--ink:#0f172a;--muted:#6b7280;--yellow:#ffd566
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;line-height:1.6;color:var(--ink);overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+
+    /* NAVBAR */
+    .navbar{position:fixed;inset:0 auto auto 0;width:100%;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #eef2ff;transition:box-shadow .3s}
+    .nav-wrap{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .logo{font-weight:800;font-size:1.15rem;background:linear-gradient(90deg,var(--pink),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:10px;white-space:nowrap}
+    .logo-img{height:40px;width:auto;display:block;object-fit:contain}
+    .nav-menu{display:flex;gap:28px;list-style:none}
+    .nav-link{font-weight:600;color:#334155;position:relative}
+    .nav-link:after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--blue));transition:width .25s}
+    .nav-link:hover:after,.nav-link.active:after{width:100%}
+    .nav-cta{padding:.6rem 1rem;border-radius:999px;color:#fff;background:linear-gradient(135deg,var(--pink),#ff7fbd);box-shadow:0 8px 24px rgba(255,74,162,.35);font-weight:700}
+    .nav-cta:hover{filter:brightness(.97)}
+    .nav-toggle{display:none;border:0;background:#fff;width:44px;height:44px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+    .nav-toggle i{color:var(--blue);font-size:20px}
+
+    /* HERO */
+    .hero{height:100vh;display:grid;place-items:center;text-align:center;color:#fff;background-image:linear-gradient(120deg,rgba(47,140,255,.45),rgba(255,74,162,.45)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2400&auto=format&fit=crop');background-size:cover;background-position:center}
+    .hero-inner{padding:0 1.25rem;max-width:960px}
+    .eyebrow{display:inline-block;padding:.4rem .75rem;border-radius:999px;background:linear-gradient(135deg,var(--yellow),#fff0b2);color:#5a4121;font-weight:800;margin-bottom:12px}
+    .hero h1{font-weight:800;font-size:clamp(2.4rem,6vw,4.2rem);text-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .hero p{opacity:.95;font-size:clamp(1rem,2.5vw,1.3rem)}
+    .cta{display:inline-block;margin-top:18px;padding:.9rem 1.6rem;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--blue));color:#fff;font-weight:700;box-shadow:0 14px 36px rgba(47,140,255,.35)}
+    .cta.alt{background:transparent;border:2px solid #fff}
+
+    /* SECTIONS */
+    .section{padding:80px 0}
+    .container{max-width:1200px;margin:auto;padding:0 20px}
+    .section-title{text-align:center;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.5rem);margin:6px 0 18px;background:linear-gradient(90deg,var(--pink),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .section-sub{color:var(--muted);text-align:center;margin-bottom:22px}
+
+    /* ABOUT */
+    .about{background:#f7fbff}
+    .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+    .about-text p{color:#475569}
+    .about-media{border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.12)}
+
+    /* SERVICES */
+    .services-grid{display:grid;gap:24px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .service{border-radius:20px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.08);background:#fff;transition:transform .35s,box-shadow .35s}
+    .service:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(0,0,0,.12)}
+    .service .media{position:relative;overflow:hidden;aspect-ratio:16/10;height:auto}
+    .service .media img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform .6s}
+    .service:hover .media img{transform:scale(1.08)}
+    .chip{position:absolute;left:14px;bottom:14px;border-radius:999px;padding:.35rem .7rem;background:#fff;color:var(--blue);font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.1)}
+    .service .body{padding:18px 18px 22px}
+    .service .body h3{margin:0 0 6px;font-size:1.15rem;color:var(--pink)}
+    .service .body p{margin:0;color:#516074}
+
+    /* DESTINATIONS */
+    .destinations{background:#fff}
+    .dest-grid{display:grid;gap:16px;grid-template-columns:repeat(4,minmax(0,1fr))}
+    .dest{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+    .dest img{height:170px;width:100%;object-fit:cover;transition:transform .5s}
+    .dest:hover img{transform:scale(1.06)}
+    .dest .tag{position:absolute;left:10px;bottom:10px;background:#fff;border-radius:12px;padding:.25rem .6rem;font-weight:800;color:var(--blue)}
+
+    /* TESTIMONIALS */
+    .testimonials{background:#f7fbff}
+    .test-grid{display:grid;gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .tcard{background:#fff;border-radius:18px;padding:22px;box-shadow:0 12px 36px rgba(0,0,0,.08);transition:transform .3s}
+    .tcard:hover{transform:translateY(-4px)}
+    .tstars{color:#ffcc00;margin-bottom:10px}
+    .tauth{display:flex;align-items:center;gap:12px;margin-top:12px}
+    .tauth img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:3px solid var(--pink)}
+
+    /* CONTACT + NEWSLETTER */
+    .contact{background:linear-gradient(120deg,var(--pink),var(--blue));color:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+    .c-card{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:16px;padding:22px}
+
+    /* Contact visuals */
+    .contact-card h3{margin:0 0 10px;font-weight:800;letter-spacing:.2px}
+    .contact-list{display:grid;gap:12px;margin:14px 0 0;padding:0;list-style:none}
+    .contact-item{display:flex;align-items:center;gap:12px}
+    .icon-badge{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.18);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .icon-badge i{font-size:18px}
+    .btn-yellow{display:inline-flex;align-items:center;gap:.5rem;margin-top:12px;padding:12px 16px;border-radius:14px;background:var(--yellow);color:#5a4121;font-weight:800;box-shadow:0 10px 26px rgba(0,0,0,.16)}
+    .btn-yellow:hover{filter:brightness(.95)}
+    .micro{opacity:.9;margin-top:8px;font-size:.95rem}
+
+    label{font-weight:600}
+    input,textarea{width:100%;margin-top:6px;border:0;border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.2);color:#fff;outline:none}
+    input::placeholder,textarea::placeholder{color:rgba(255,255,255,.85)}
+    .btn-primary{border:0;border-radius:14px;padding:12px 16px;background:#fff;color:var(--pink);font-weight:800}
+    .btn-primary:hover{filter:brightness(.96)}
+    .newsletter{margin-top:26px;text-align:center}
+    .newsletter .controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .newsletter input{max-width:360px}
+
+    /* FOOTER */
+    footer{background:linear-gradient(135deg,var(--blue),var(--pink));color:#fff;padding:36px 0;margin-top:60px}
+
+    /* ANIMATIONS */
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .fade-in.visible{opacity:1;transform:none}
+
+    /* Anchor offset */
+    section[id]{scroll-margin-top:80px}
+
+    /* Mobile tweaks */
+    .hero{min-height:100svh}
+
+    @media (max-width:992px){
+      .nav-toggle{display:block}
+      .nav-menu{display:none;position:absolute;top:62px;right:16px;left:16px;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 20px 40px rgba(0,0,0,.12);flex-direction:column;gap:14px}
+      .nav-menu.open{display:flex}
+      .nav-menu .nav-cta{text-align:center}
+
+      .about-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .test-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .contact-grid{grid-template-columns:1fr}
+
+      .hero{height:auto;padding:96px 0 56px}
+      .logo-img{height:36px}
+    }
+    @media (max-width:560px){
+      .services-grid{grid-template-columns:1fr}
+      .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .test-grid{grid-template-columns:1fr}
+      .hero{padding:88px 0 48px}
+      .logo{font-size:1rem}
+      .logo-img{height:32px}
+    }
+    @media (max-width:380px){.logo-text{display:none}}
+
+    .testimonial-avatar{
+      width:60px;height:60px;border-radius:50%;
+      object-fit:cover;border:3px solid var(--pink);
+    }
+    @media (min-width:768px){ .testimonial-avatar{ width:72px;height:72px; } }
+  </style>
 </head>
 
 <body>
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-wrap">
-            <a class="logo" href="#home">
-                <img src="Images/traveling-mom-logo.png" alt="The Traveling Mom Vacations logo" class="logo-img">
-                <span class="logo-text">The Traveling Mom Vacations</span>
-            </a>
-            <button class="nav-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#contact" class="nav-cta">Book Now</a></li>
-            </ul>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-wrap">
+      <a class="logo" href="#home">
+        <img src="Images/traveling-mom-logo.png" alt="The Traveling Mom Vacations logo" class="logo-img">
+        <span class="logo-text">The Traveling Mom Vacations</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-inner fade-in">
+      <span class="eyebrow">Curated • Joyful • Stress-Free</span>
+      <h1>Adventure Awaits</h1>
+      <p>Creating magical family memories, one destination at a time.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="cta" href="#services">Plan Your Adventure</a>
+        <a class="cta alt" href="#destinations">Browse Destinations</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <h2 class="section-title" style="text-align:left">Your Family Travel Expert</h2>
+          <p>Hi, I’m Delveatra DeVance, founder of The Traveling Mom Vacations. With visits to more than 25 countries, I’ve turned my passion for exploring the world into helping others create seamless, stress-free, and unforgettable journeys.</p>
+          <p>I specialize in luxury escapes, family vacations, girls’ trips, cruises, group travel, and destination weddings, handling the details so you can focus on enjoying the experience. As a mom of twins, I understand the value of travel that’s both memorable and practical. My mission is simple: to transform your travel dreams into reality with personalized care and expertise.</p>
+          <a class="cta" href="#contact">Book Your Next Trip</a>
         </div>
-    </nav>
-
-    <!-- HERO -->
-    <header id="home" class="hero">
-        <div class="hero-inner fade-in">
-            <span class="eyebrow">Curated • Joyful • Stress-Free</span>
-            <h1>Adventure Awaits</h1>
-            <p>Creating magical family memories, one destination at a time.</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-                <a class="cta" href="#services">Plan Your Adventure</a>
-                <a class="cta alt" href="#destinations">Browse Destinations</a>
-            </div>
+        <div class="about-media fade-in">
+          <img src="Images/Dr_D.jpeg" alt="A photo of Delveatra Devance" />
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text fade-in">
-                    <h2 class="section-title" style="text-align:left">Your Family Travel Expert</h2>
-                    <p>Hi, I’m Delveatra DeVance, founder of The Traveling Mom Vacations. With visits to more than 25
-                        countries, I’ve turned my passion for exploring the world into helping others create seamless,
-                        stress-free, and unforgettable journeys.</p>
-                    <p>I specialize in luxury escapes, family vacations, girls’ trips, cruises, group travel, and
-                        destination weddings, handling the details so you can focus on enjoying the experience. As a mom
-                        of twins, I understand the value of travel that’s both memorable and practical. My mission is
-                        simple: to transform your travel dreams into reality with personalized care and expertise.</p>
-                    <a class="cta" href="#contact">Book Your Next Trip</a>
-                </div>
-                <div class="about-media fade-in">
-                    <img src="Images/Dr_D.jpeg" alt="A photo of Delveatra Devance" />
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">High-impact visuals, irresistible perks, and flawless logistics—tailored to you.</p>
 
-    <!-- SERVICES -->
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-sub">High-impact visuals, irresistible perks, and flawless logistics—tailored to you.</p>
+      <div class="services-grid">
+        <!-- Luxury Resorts -->
+        <article class="service fade-in">
+          <div class="media">
+            <picture>
+              <source type="image/webp" srcset="Images/resort-800.webp 1x, Images/resort-1600.webp 2x" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/resort-800.jpg" width="800" height="1068" alt="Aerial view of a tropical island resort with turquoise water" loading="lazy" decoding="async">
+            </picture>
+            <span class="chip">Luxury Resorts</span>
+          </div>
+          <div class="body">
+            <h3>Luxury Resorts</h3>
+            <p>VIP perks at top properties—breakfast, credits, and upgrades when available.</p>
+          </div>
+        </article>
 
-            <div class="services-grid">
-                <!-- Luxury Resorts -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp" srcset="Images/resort-800.webp 1x, Images/resort-1600.webp 2x"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/resort-800.jpg" width="800" height="1068"
-                                alt="Aerial view of a tropical island resort with turquoise water" loading="lazy"
-                                decoding="async">
-                        </picture>
-                        <span class="chip">Luxury Resorts</span>
-                    </div>
-                    <div class="body">
-                        <h3>Luxury Resorts</h3>
-                        <p>VIP perks at top properties—breakfast, credits, and upgrades when available.</p>
-                    </div>
-                </article>
+        <!-- Adventure Trips -->
+        <article class="service fade-in">
+          <div class="media">
+            <picture>
+                <source type="image/webp" srcset="Images/adventure-trip-600.webp 600w, Images/adventure-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+                <img src="Images/adventure-trip-600.jpg" srcset="Images/adventure-trip-600.jpg 600w, Images/adventure-trip-1200.jpg 1200w" alt="Rappelling on a dramatic canyon wall" loading="lazy" decoding="async" />
+            </picture>
+            <span class="chip">Adventure Trips</span>
+          </div>
+          <div class="body">
+            <h3>Adventure Trips</h3>
+            <p>ATVs in Bali, safari in South Africa, cenote swims in Mexico—expertly arranged.</p>
+          </div>
+        </article>
 
-                <!-- Adventure Trips -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/adventure-trip-600.webp 600w, Images/adventure-trip-1200.webp 1200w"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/adventure-trip-600.jpg"
-                                srcset="Images/adventure-trip-600.jpg 600w, Images/adventure-trip-1200.jpg 1200w"
-                                alt="Rappelling on a dramatic canyon wall" loading="lazy" decoding="async" />
-                        </picture>
-                        <span class="chip">Adventure Trips</span>
-                    </div>
-                    <div class="body">
-                        <h3>Adventure Trips</h3>
-                        <p>ATVs in Bali, safari in South Africa, cenote swims in Mexico—expertly arranged.</p>
-                    </div>
-                </article>
+        <!-- Romantic Getaways -->
+        <article class="service fade-in">
+          <div class="media">
+            <picture>
+              <source type="image/webp" srcset="Images/honeymoon-800.webp 1x, Images/honeymoon-1600.webp 2x" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+              <img src="Images/honeymoon-800.jpg" width="800" height="533" alt="Couple relaxing under a waterfall" loading="lazy" decoding="async">
+            </picture>
+            <span class="chip">Romantic Getaways</span>
+          </div>
+          <div class="body">
+            <h3>Romantic Getaways</h3>
+            <p>Honeymoons, anniversaries, and destination weddings—private dinners and sunsets to remember.</p>
+          </div>
+        </article>
 
-                <!-- Romantic Getaways -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/honeymoon-800.webp 1x, Images/honeymoon-1600.webp 2x"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/honeymoon-800.jpg" width="800" height="533"
-                                alt="Couple relaxing under a waterfall" loading="lazy" decoding="async">
-                        </picture>
-                        <span class="chip">Romantic Getaways</span>
-                    </div>
-                    <div class="body">
-                        <h3>Romantic Getaways</h3>
-                        <p>Honeymoons, anniversaries, and destination weddings—private dinners and sunsets to remember.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Group Travel -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/group-trip-600.webp 600w, Images/group-trip-1200.webp 1200w"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/group-trip-600.jpg"
-                                srcset="Images/group-trip-600.jpg 600w, Images/group-trip-1200.jpg 1200w"
-                                alt="Friends posing together outdoors on a group trip" loading="lazy"
-                                decoding="async" />
-                        </picture>
-                        <span class="chip">Group Travel</span>
-                    </div>
-                    <div class="body">
-                        <h3>Group Travel</h3>
-                        <p>Birthdays, girls’ trips, and multi-family escapes—room blocks and payment plans handled.</p>
-                    </div>
-                </article>
-
-                <!-- Ocean & River Cruises -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/cruise-ship-600.webp 600w, Images/cruise-ship-1200.webp 1200w"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/cruise-ship-600.jpg"
-                                srcset="Images/cruise-ship-600.jpg 600w, Images/cruise-ship-1200.jpg 1200w"
-                                alt="Sightseeing cruise boat on a river" loading="lazy" decoding="async" />
-                        </picture>
-                        <span class="chip">Ocean &amp; River Cruises</span>
-                    </div>
-                    <div class="body">
-                        <h3>Ocean &amp; River Cruises</h3>
-                        <p>Cabin selects, onboard credits, and curated excursions on the world’s best lines.</p>
-                    </div>
-                </article>
-
-                <!-- Family Vacations -->
-                <article class="service fade-in">
-                    <div class="media">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/family-vacation-600.webp 600w, Images/family-vacation-1200.webp 1200w"
-                                sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
-                            <img src="Images/family-vacation-600.jpg"
-                                srcset="Images/family-vacation-600.jpg 600w, Images/family-vacation-1200.jpg 1200w"
-                                alt="Family smiling together at the beach" loading="lazy" decoding="async" />
-                        </picture>
-                        <span class="chip">Family Vacations</span>
-                    </div>
-                    <div class="body">
-                        <h3>Family Vacations</h3>
-                        <p>Game nights, pool days, and stress-free stays—homes and resorts that make memories.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- DESTINATIONS -->
-    <section id="destinations" class="destinations section">
-        <div class="container">
-            <h2 class="section-title">Top Destinations</h2>
-            <div class="dest-grid">
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/paris-600.webp 1x, Images/paris-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/paris-600.jpg" width="600" height="379"
-                            alt="Eiffel Tower and Champ de Mars in Paris" loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Paris</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/dubai-600.webp 1x, Images/dubai-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/dubai-600.jpg" width="600" height="400"
-                            alt="Ain Dubai observation wheel at Bluewaters Island" loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Dubai</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/bali-600.webp 1x, Images/bali-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/bali-600.jpg" width="600" height="464"
-                            alt="Kelingking Beach cliffs in Nusa Penida, Bali" loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Bali</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/maldives-600.webp 1x, Images/maldives-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/maldives-600.jpg" width="600" height="450"
-                            alt="Maldives white-sand islet with turquoise lagoon" loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Maldives</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/jamaica-600.webp 1x, Images/jamaica-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/jamaica-600.jpg" width="600" height="338" alt="Dunn’s River Falls in Jamaica"
-                            loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Jamaica</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/mexico-600.webp 1x, Images/mexico-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/mexico-600.jpg" width="600" height="400" alt="Historic plaza scene in Mexico"
-                            loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Mexico</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/greece-600.webp 1x, Images/greece-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/greece-600.jpg" width="600" height="378"
-                            alt="Santorini clifftop village overlooking the Aegean" loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Greece</span>
-                </div>
-
-                <div class="dest fade-in">
-                    <picture>
-                        <source type="image/webp" srcset="Images/tokyo-600.webp 1x, Images/tokyo-1200.webp 2x"
-                            sizes="(max-width:560px) 50vw, (max-width:992px) 33vw, 25vw">
-                        <img src="Images/tokyo-600.jpg" width="600" height="400" alt="Tokyo neon at night in Akihabara"
-                            loading="lazy" decoding="async">
-                    </picture>
-                    <span class="tag">Tokyo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="testimonials section">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="test-grid">
-                <article class="tcard fade-in">
-                    <div class="tstars">★★★★★</div>
-                    <p>“Working with The Traveling Mom Vacations was a great experience for me and my family. She made
-                        the process smooth and enjoyable. Her professional attitude and willingness to help made our
-                        experience easy and this was a welcome bonus. Honestly, she is the first person I'll refer and
-                        choose planning any trip moving forward. Our trip to Vegas was perfect and The Traveling Mom
-                        Vacations made it all possible.”</p>
-                    <div class="tauth">
-                        <picture>
-                            <source type="image/webp" srcset="Images/keke-chanel-400.webp 1x,
-                  Images/keke-chanel-800.webp 2x"> <img class="testimonial-avatar" src="Images/keke-chanel-400.jpg"
-                                width="72" height="72" alt="Keke Chanel smiling">
-                        </picture>
-                        <div><strong>Keke Chanel</strong></div>
-                    </div>
-                </article>
-                <article class="tcard fade-in">
-                    <div class="tstars">★★★★★</div>
-                    <p>“Delveatra DeVance Clement. Thanks for planning our trip to Arizona! Our resort was amazing and
-                        you were amazing to work with!”</p>
-                    <div class="tauth">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/toni-banks-400.webp 1x,  Images/toni-banks-800.webp 2x">
-                            <img class="testimonial-avatar" src="Images/toni-banks-400.jpg" width="72" height="72"
-                                alt="Toni Banks wearing hat at a restaurant">
-                        </picture>
-                        <div><strong>Toni Banks</strong></div>
-                    </div>
-                </article>
-                <article class="tcard fade-in">
-                    <div class="tstars">★★★★★</div>
-                    <p>“I had the pleasure of working with Delveatra of The Traveling Mom Vacations and it was one of
-                        the easiest experiences I have had. She responded very quickly with multiple options within the
-                        same day and handled every detail, even a handicap-accessible room for my parents. She’s
-                        professional, fast, and goes above and beyond.”</p>
-                    <div class="tauth">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="Images/percy-huff-400.webp 1x, Images/percy-huff-800.webp 2x">
-                            <img class="testimonial-avatar" src="Images/percy-huff-400.jpg" width="72" height="72"
-                                alt="Percy Huff in car selfie">
-                        </picture>
-                        <div><strong>Percy Huff III</strong></div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT + NEWSLETTER -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Left card: quick contact info -->
-                <div class="fade-in">
-                    <h2 class="section-title" style="color:#fff;-webkit-text-fill-color:unset">Let's Plan Your Perfect
-                        Family Adventure</h2>
-                    <div class="c-card contact-card" style="font-size:1.05rem">
-                        <ul class="contact-list">
-                            <li class="contact-item">
-                                <span class="icon-badge"><i class="fa-solid fa-envelope"></i></span>
-                                <span>Delveatra@thetravelingmom.com</span>
-                            </li>
-                            <li class="contact-item">
-                                <span class="icon-badge"><i class="fa-solid fa-phone"></i></span>
-                                <span>225-907-7992</span>
-                            </li>
-                            <li class="contact-item">
-                                <span class="icon-badge"><i class="fa-solid fa-location-dot"></i></span>
-                                <span>Atlanta, GA</span>
-                            </li>
-                            <li class="contact-item">
-                                <span class="icon-badge"><i class="fa-solid fa-clock"></i></span>
-                                <span>9AM–7PM Daily</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Right card: long form CTA -->
-                <div class="fade-in">
-                    <div class="c-card contact-card">
-                        <h3>Ready to Book your next travel</h3>
-                        <p class="micro">Click the link below.</p>
-                        <a href="https://form.jotform.com/240864513073151" target="_blank" class="btn-yellow">
-                            <i class="fa-regular fa-pen-to-square"></i> Fill the form here
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Newsletter (Mailchimp JSONP integration) -->
-            <div class="newsletter">
-                <h3 style="margin:0 0 8px">Get Exclusive Travel Deals</h3>
-                <p style="margin:0 0 14px;opacity:.95">Join our newsletter for insider tips, family travel guides, and
-                    special offers!</p>
-
-                <form id="mc-embedded-subscribe-form" class="controls"
-                    action="https://gmail.us5.list-manage.com/subscribe/post?u=4b2c7b4fc58cf81260dfc2863&id=1fb1e7e7ab&f_id=0038edebf0"
-                    method="post" novalidate>
-                    <input type="email" name="EMAIL" class="newsletter-input" id="mce-EMAIL"
-                        placeholder="Enter your email address" required>
-                    <button class="btn-primary" type="submit" name="subscribe">Subscribe Now</button>
-                    <div style="position:absolute; left:-5000px" aria-hidden="true">
-                        <input type="text" name="b_4b2c7b4fc58cf81260dfc2863_1fb1e7e7ab" tabindex="-1" value="">
-                    </div>
-                    <div id="newsletter-status" aria-live="polite" style="margin-top:.75rem;font-weight:600;"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container"
-            style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-            <div>© <span id="year"></span> The Traveling Mom Vacations. All rights reserved.</div>
-            <div style="display:flex;gap:12px">
-                <a href="https://www.facebook.com/share/1CgechZzsx/?mibextid=wwXIfr"
-                    style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--pink)"><i
-                        class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/thetravelingmomvacations"
-                    style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--blue)"><i
-                        class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@dclementstravelingmom?_t=ZS-8zxPfB3vQzH&_r=1"
-                    style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;color:#1da1f2"><i
-                        class="fa-brands fa-tiktok"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile nav toggle
-        const toggle = document.querySelector('.nav-toggle');
-        const menu = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', () => menu.classList.toggle('open'));
-
-        // Active link on scroll
-        const ids = ['home', 'about', 'services', 'testimonials', 'contact'];
-        const links = document.querySelectorAll('.nav-link');
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    links.forEach(l => l.classList.remove('active'));
-                    const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-                    active && active.classList.add('active');
-                }
-            });
-        }, { rootMargin: '-45% 0px -50% 0px' });
-        ids.forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
-
-        // Fade-in on scroll
-        const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }) }, { threshold: 0.15 });
-        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-        // Parallax
-        window.addEventListener('scroll', () => {
-            const sc = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            hero.style.backgroundPosition = `center ${Math.min(sc * 0.25, 180)}px`;
-        });
-
-        // Footer year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mailchimp JSONP submit (keeps user on page)
-        (function () {
-            const form = document.getElementById('mc-embedded-subscribe-form');
-            if (!form) return;
-            const status = document.getElementById('newsletter-status');
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = form.querySelector('input[name="EMAIL"]').value.trim();
-                if (!email) { status.style.color = '#ff4aa2'; status.textContent = 'Please enter your email.'; return; }
-
-                const base = form.getAttribute('action').replace('/post?', '/post-json?');
-                const params = new URLSearchParams(new FormData(form));
-                const cb = 'mc_cb_' + Date.now();
-
-                window[cb] = function (data) {
-                    if (data.result === 'success') {
-                        status.style.color = '#ffffff'; // changed to white per your request
-                        status.textContent = 'Thanks for subscribing!';
-                        form.reset();
-                    } else {
-                        status.style.color = '#ff4aa2';
-                        status.textContent = (data.msg || 'Something went wrong. Please try again.').replace(/<[^>]+>/g, '');
-                    }
-                    delete window[cb];
-                    script.remove();
-                };
-
-                const script = document.createElement('script');
-                script.src = base + '&' + params.toString() + '&c=' + cb;
-                document.body.appendChild(script);
-            });
-        })();
-    </script>
-</body>
-
-</html>
+        <!-- Group Travel -->
+        <article class="service fade-in">
+          <div class="media">
+            <picture>
+                <source type="image/webp" srcset="Images/group-trip-600.webp 600w, Images/group-trip-1200.webp 1200w" sizes="(max-width:560px) 100vw, (max-width:992px) 50vw, 33vw">
+                <img src="Images/group-trip-600.jpg" srcset="Images/group-trip-600.jpg 600w, Images/group-trip-1200.jpg 1200w" alt="Friends posing together outdoors on a group trip" loading="lazy" decoding="async" />
+            </picture>
+            <span class="chip">Group Travel</span>
+          </div>
+          <div class="body"
