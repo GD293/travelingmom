@@ -498,10 +498,10 @@
               class="controls"
               action="https://gmail.us5.list-manage.com/subscribe/post?u=4b2c7b4fc58cf81260dfc2863&id=1fb1e7e7ab&f_id=0038edebf0"
               method="post" novalidate>
-          <!-- Visible First Name (Mailchimp default tag is FNAME) -->
+          <!-- Visible First Name -->
           <input type="text" name="FNAME" id="mce-FNAME" class="newsletter-input"
                  placeholder="Enter your first name" autocomplete="given-name" required>
-          <!-- Hidden mirrors for common alternate merge tags (covers lists using MMERGE1, etc.) -->
+          <!-- Hidden mirrors (safe to keep) -->
           <input type="hidden" name="MMERGE1" id="mce-MMERGE1">
           <input type="hidden" name="FIRSTNAME" id="mce-FIRSTNAME">
           <input type="hidden" name="NAME" id="mce-NAME">
@@ -567,7 +567,7 @@
     // Footer year
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Mailchimp JSONP submit (keeps user on page) + reliable first-name mapping
+    // Mailchimp JSONP submit (keeps user on page) + explicit FNAME mapping
     (function () {
       const form = document.getElementById('mc-embedded-subscribe-form');
       if (!form) return;
@@ -598,21 +598,25 @@
         if (!firstName) { showStatus('Please enter your first name.', '#ff4aa2'); return; }
         if (!email) { showStatus('Please enter your email.', '#ff4aa2'); return; }
 
-        // Mirror to hidden inputs for common alternate merge tags used by some audiences
-        const mirrorTags = ['#mce-MMERGE1', '#mce-FIRSTNAME', '#mce-NAME'];
-        mirrorTags.forEach(sel => {
+        // Mirror to hidden inputs for robustness
+        ([
+          ['#mce-MMERGE1','MMERGE1'],
+          ['#mce-FIRSTNAME','FIRSTNAME'],
+          ['#mce-NAME','NAME']
+        ]).forEach(([sel])=>{
           const el = form.querySelector(sel);
           if (el) el.value = firstName;
         });
 
         // Convert /post? -> /post-json? for JSONP
         const base = form.getAttribute('action').replace('/post?', '/post-json?');
-
-        // Build params from *actual form fields* (includes our hidden mirrors)
         const params = new URLSearchParams(new FormData(form));
 
-        // Still append redundantly to be extra safe (Mailchimp ignores unknown fields)
-        ['FNAME','MMERGE1','FIRSTNAME','NAME'].forEach(tag => {
+        // *** Force the canonical tag Mailchimp expects ***
+        params.set('FNAME', firstName);   // <— key line
+
+        // Be extra-safe: if your audience had alternates, keep them too
+        ['MMERGE1','FIRSTNAME','NAME'].forEach(tag=>{
           if (!params.has(tag) && firstName) params.append(tag, firstName);
         });
 
